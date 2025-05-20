@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "location": "./js/location.mjs",
+            "weather": "./js/weather.mjs",
+            "ui": "./js/ui.mjs"
+          }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #87CEEB, #f4f4f4);
+            color: #333;
+        }
+        header {
+            background: #1E90FF;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #1E90FF;
+        }
+        input#location-search {
+            width: calc(100% - 1rem);
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: large
+        }
+        select#location {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: large;
+        }
+        #weather-display {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #1E90FF;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to EWW (Example Weather Website)!</h1>
+    </header>
+    <main>
+        <h2>Choose a Location</h2>
+        <form id="location-form" onsubmit="return false;" style="display: flex; flex-direction: column;">
+            <label for="location-search">Search for a location:</label>
+            <input type="text" id="location-search" placeholder="Enter a location" />
+        
+            <select id="location">
+            </select>
+        </form>
+
+        <div id="weather-display">
+            <h2>Weather Information</h2>
+            <p>Weather data will be displayed here.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Fabian Paus</p>
+    </footer>
+
+    <script type="module">
+        import { initUI } from 'ui';
+        initUI();
+    </script>
+</body>
+</html>
